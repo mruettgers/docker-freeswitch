@@ -72,4 +72,9 @@ RUN set -xe && \
 
 ENV PATH ${PATH}:/usr/local/freeswitch/bin
 
-CMD ["/usr/local/freeswitch/bin/freeswitch"]
+VOLUME /config
+VOLUME /data
+
+COPY ./files/ /
+
+ENTRYPOINT ["/docker/docker-entrypoint.sh"]
